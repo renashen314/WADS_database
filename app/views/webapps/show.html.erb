@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @webapp %>
+
+<div>
+  <%= link_to "Edit this webapp", edit_webapp_path(@webapp) %> |
+  <%= link_to "Back to webapps", webapps_path %>
+
+  <%= button_to "Destroy this webapp", @webapp, method: :delete %>
+</div>

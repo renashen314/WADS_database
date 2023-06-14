@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Webapps</h1>
+
+<div id="webapps">
+  <% @webapps.each do |webapp| %>
+    <%= render webapp %>
+    <p>
+      <%= link_to "Show this webapp", webapp %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New webapp", new_webapp_path %>
