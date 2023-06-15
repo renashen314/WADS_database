@@ -15,8 +15,8 @@ class CreateWebapps < ActiveRecord::Migration[7.0]
       t.string :git_repo
       t.string :app_url
       t.string :risk_manage_consideration
-      t.date :start_date
-      t.date :end_date
+      t.date :launch_date
+      t.date :end_of_life_date
 
       t.timestamps
     end

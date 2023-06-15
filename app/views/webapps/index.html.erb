@@ -1,7 +1,10 @@
 <p style="color: green"><%= notice %></p>
-
 <h1>Webapps</h1>
-
+<div>
+  <button class="secondary_blue_button">
+    <%= link_to "New webapp", new_webapp_path %>
+  </button>
+</div>
 <div id="webapps">
   <% @webapps.each do |webapp| %>
     <%= render webapp %>
@@ -10,5 +13,3 @@
     </p>
   <% end %>
 </div>
-
-<%= link_to "New webapp", new_webapp_path %>

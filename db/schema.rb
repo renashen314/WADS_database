@@ -41,8 +41,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_14_183335) do
     t.string "git_repo"
     t.string "app_url"
     t.string "risk_manage_consideration"
-    t.date "start_date"
-    t.date "end_date"
+    t.date "launch_date"
+    t.date "end_of_life_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
