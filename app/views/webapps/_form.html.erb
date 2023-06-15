@@ -2,7 +2,6 @@
   <% if webapp.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(webapp.errors.count, "error") %> prohibited this webapp from being saved:</h2>
-
       <ul>
         <% webapp.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -10,87 +9,70 @@
       </ul>
     </div>
   <% end %>
-
   <div>
     <%= form.label :project_name, style: "display: block" %>
     <%= form.text_field :project_name %>
   </div>
-
   <div>
     <%= form.label :language, style: "display: block" %>
     <%= form.text_field :language %>
   </div>
-
   <div>
     <%= form.label :framework, style: "display: block" %>
     <%= form.text_field :framework %>
   </div>
-
   <div>
     <%= form.label :description, style: "display: block" %>
     <%= form.text_area :description %>
   </div>
-
   <div>
     <%= form.label :notes, style: "display: block" %>
     <%= form.text_area :notes %>
   </div>
-
   <div>
     <%= form.label :status, style: "display: block" %>
     <%= form.text_field :status %>
   </div>
-
   <div>
     <%= form.label :authentication, style: "display: block" %>
     <%= form.text_field :authentication %>
   </div>
-
   <div>
     <%= form.label :database, style: "display: block" %>
     <%= form.text_field :database %>
   </div>
-
   <div>
     <%= form.label :server_os, style: "display: block" %>
     <%= form.text_field :server_os %>
   </div>
-
   <div>
     <%= form.label :server_location, style: "display: block" %>
     <%= form.text_field :server_location %>
   </div>
-
   <div>
     <%= form.label :documentation, style: "display: block" %>
     <%= form.text_field :documentation %>
   </div>
-
   <div>
     <%= form.label :git_repo, style: "display: block" %>
     <%= form.text_field :git_repo %>
   </div>
-
   <div>
     <%= form.label :app_url, style: "display: block" %>
     <%= form.text_field :app_url %>
   </div>
-
   <div>
     <%= form.label :risk_manage_consideration, style: "display: block" %>
     <%= form.text_field :risk_manage_consideration %>
   </div>
-
   <div>
-    <%= form.label :start_date, style: "display: block" %>
-    <%= form.date_field :start_date %>
+    <%= form.label :launch_date, style: "display: block" %>
+    <%= form.date_field :launch_date %>
   </div>
-
   <div>
-    <%= form.label :end_date, style: "display: block" %>
-    <%= form.date_field :end_date %>
+    <%= form.label :end_of_life_date, style: "display: block" %>
+    <%= form.date_field :end_of_life_date %>
   </div>
-
   <div>
     <%= form.submit %>
   </div>
