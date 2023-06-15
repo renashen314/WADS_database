@@ -1,10 +1,17 @@
 <p style="color: green"><%= notice %></p>
-
 <%= render @webapp %>
-
-<div>
-  <%= link_to "Edit this webapp", edit_webapp_path(@webapp) %> |
-  <%= link_to "Back to webapps", webapps_path %>
-
-  <%= button_to "Destroy this webapp", @webapp, method: :delete %>
+<div class="lg:grid lg:justify-items-end">
+  <div class="py-2">
+    <button class="primary_button">
+      <%= link_to "Edit this webapp", edit_webapp_path(@webapp) %>
+    </button>
+  </div>
+  <div class="py-2">
+    <button class="secondary_blue_button">
+      <%= link_to "Back to webapps", webapps_path %>
+    </button>
+  </div>
+  <div class="py-2">
+    <%= button_to "Destroy this webapp", @webapp, method: :delete, class: "tertiary_button" %>
+  </div>
 </div>

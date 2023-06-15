@@ -1,10 +1,11 @@
 <h1>Editing webapp</h1>
-
 <%= render "form", webapp: @webapp %>
-
 <br>
-
 <div>
-  <%= link_to "Show this webapp", @webapp %> |
-  <%= link_to "Back to webapps", webapps_path %>
+  <button class="primary_button">
+    <%= link_to "Show this webapp", @webapp %>
+  </button>
+  <button class="secondary_blue_button">
+    <%= link_to "Back to webapps", webapps_path %>
+  </button>
 </div>

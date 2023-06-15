@@ -1,17 +1,18 @@
+<%# <%= render "layouts/flash" %>
+<div class="container px-1 mb-20">
+  <h1 class="mb-4">Webapps</h1>
+  <div>
+    <button class="secondary_blue_button">
+      <%= link_to "New webapp", new_webapp_path %>
+    </button>
+  </div>
+  <div id="webapps" class="min-w-full">
+    <% @webapps.each do |webapp| %>
+      <%= render webapp %>
+      <p>
+        <%= link_to "Show this webapp", webapp %>
+      </p>
+    <% end %>
+  </div>
+</div>
 <p style="color: green"><%= notice %></p>
-<h1 class="mb-4">Webapps</h1>
-<div>
-  <button class="secondary_blue_button">
-    <%= link_to "New webapp", new_webapp_path %>
-  </button>
-</div>
-<div id="webapps">
-  <% @webapps.each do |webapp| %>
-    <%= render webapp %>
-    <p>
-      <%= link_to "Show this webapp", webapp %>
-    </p>
-  <% end %>
-</div>
-<%# copied from LSA rideshare %>
-<%# <p class="body-text">To Add a new Webapp, go to <%= link_to 'Webapp', webapps_path, class: "link_to" %> and add the webapp there</p>
