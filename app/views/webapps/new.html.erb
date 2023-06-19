@@ -1,6 +1,7 @@
-<h1>New webapp</h1>
-<%= render "form", webapp: @webapp %>
-<br>
-<button class="secondary_blue_button">
-  <%= link_to "Back to webapps", webapps_path %>
-</button>
+<div class="container mx-auto">
+  <h1 class="flex justify-center py-4">New webapp</h1>
+  <div class="flex justify-center"><%= render "form", webapp: @webapp %></div>
+  <button class="secondary_blue_button">
+    <%= link_to "Back to webapps", webapps_path %>
+  </button>
+</div>

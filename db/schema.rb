@@ -10,12 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_14_183335) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_19_184436) do
   create_table "dev_apps", force: :cascade do |t|
-    t.integer "dev_id"
-    t.integer "app_id"
+    t.integer "developer_id", null: false
+    t.integer "webapp_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["developer_id"], name: "index_dev_apps_on_developer_id"
+    t.index ["webapp_id"], name: "index_dev_apps_on_webapp_id"
   end
 
   create_table "developers", force: :cascade do |t|
@@ -47,4 +49,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_14_183335) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "dev_apps", "developers"
+  add_foreign_key "dev_apps", "webapps"
 end
