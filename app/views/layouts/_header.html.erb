@@ -12,7 +12,12 @@
                 Webapp Database
               </span>
             </div>
-          <% end %>
-        </div>
+            <div class="hidden sm:ml-6 sm:flex sm:space-x-4 pl-2"></div>
+            <div class="header_link">
+              <%= link_to "Developers", developers_path, class: "#{class_names(active: current_page?(developers_path))}" %>
+            </div>
+          </div>
+        <% end %>
       </div>
-    </nav>
+    </div>
+  </nav>
