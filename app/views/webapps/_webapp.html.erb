@@ -5,7 +5,9 @@
   </p>
   <p>
     <strong>Developers:</strong>
-    <%= webapp.developers[1].first_name%>
+    <% webapp.developers.each do |w| %>
+      <%= link_to(w.full_name, w) %>
+    <% end %>
   </p>
   <p>
     <strong>Language:</strong>

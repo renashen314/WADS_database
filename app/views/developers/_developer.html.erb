@@ -3,15 +3,17 @@
     <strong>Uniqname:</strong>
     <%= developer.uniqname %>
   </p>
-
   <p>
     <strong>First name:</strong>
     <%= developer.first_name %>
   </p>
-
   <p>
     <strong>Last name:</strong>
     <%= developer.last_name %>
   </p>
-
+  <ul>
+    <% developer.webapps.each do |d| %>
+      <li> <%= link_to(d.project_name, d) %></li>
+    <% end %>
+  </ul>
 </div>
