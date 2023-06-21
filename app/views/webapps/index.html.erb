@@ -6,6 +6,49 @@
       <%= link_to "New webapp", new_webapp_path %>
     </button>
   </div>
+  <table class="mi_table">
+    <thead class="border border-l-0 border-r-0 border-gray-um60">
+      <tr>
+        <th class="header_th active:underline"><%= link_to "Project Name", :sort => "project_name"%></th>
+        <th class="header_th"><%= link_to "Language", :sort => "language"%></th>
+        <th class="header_th"><%= link_to "Framework", :sort => "framework"%></th>
+        <th class="header_th">Developers</th>
+        <th class="header_th">Description</th>
+        <th class="header_th">Git Repository</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @webapps.each do |a|%>
+        <tr>
+          <td class="mi_tbody_td ">
+            <%= link_to(a.project_name, a) %>
+          </td>
+          <td class="mi_tbody_td">
+            <%= a.language %>
+          </td>
+          <td class="mi_tbody_td">
+            <%= a.framework %>
+          </td>
+          <td class="mi_tbody_td">
+            <ul>
+              <% a.developers.each do |w| %>
+                <li><%= link_to(w.full_name, w) %></li>
+              <% end %>
+            </ul>
+          </td>
+          <td class="mi_tbody_td">
+            <%= a.description %>
+          </td>
+          <td class="mi_tbody_td">
+            <%= a.git_repo %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<p style="color: green"><%= notice %></p>
+<% if false %>
   <div id="webapps" class="min-w-full">
     <% @webapps.each do |webapp| %>
       <%= render webapp %>
@@ -14,5 +57,4 @@
       </p>
     <% end %>
   </div>
-</div>
-<p style="color: green"><%= notice %></p>
+<% end %>

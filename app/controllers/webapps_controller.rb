@@ -3,7 +3,7 @@ class WebappsController < ApplicationController
 
   # GET /webapps or /webapps.json
   def index
-    @webapps = Webapp.all
+    @webapps = Webapp.order(params[:sort])
   end
 
   # GET /webapps/1 or /webapps/1.json
