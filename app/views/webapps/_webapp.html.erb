@@ -1,74 +1,80 @@
-<div id="<%= dom_id webapp %>">
-  <p>
-    <strong>Project name:</strong>
-    <%= webapp.project_name %>
-  </p>
-  <p>
-    <strong>Developers:</strong>
-    <% webapp.developers.each do |w| %>
-      <%= link_to(w.full_name, w) %>
-    <% end %>
-  </p>
-  <p>
-    <strong>Language:</strong>
-    <%= webapp.language %>
-  </p>
-  <p>
-    <strong>Framework:</strong>
-    <%= webapp.framework %>
-  </p>
-  <p>
-    <strong>Description:</strong>
-    <%= webapp.description %>
-  </p>
-  <p>
-    <strong>Notes:</strong>
-    <%= webapp.notes %>
-  </p>
-  <p>
-    <strong>Status:</strong>
-    <%= webapp.status %>
-  </p>
-  <p>
-    <strong>Authentication:</strong>
-    <%= webapp.authentication %>
-  </p>
-  <p>
-    <strong>Database:</strong>
-    <%= webapp.database %>
-  </p>
-  <p>
-    <strong>Server os:</strong>
-    <%= webapp.server_os %>
-  </p>
-  <p>
-    <strong>Server location:</strong>
-    <%= webapp.server_location %>
-  </p>
-  <p>
-    <strong>Documentation:</strong>
-    <%= webapp.documentation %>
-  </p>
-  <p>
-    <strong>Git repo:</strong>
-    <%= webapp.git_repo %>
-  </p>
-  <p>
-    <strong>App url:</strong>
-    <%= webapp.app_url %>
-  </p>
-  <p>
-    <strong>Risk manage consideration:</strong>
-    <%= webapp.risk_manage_consideration %>
-  </p>
-  <p>
-    <strong>Launch date:</strong>
-    <%= webapp.launch_date %>
-  </p>
-  <p>
-    <strong>End of life date:</strong>
-    <%= webapp.end_of_life_date %>
-  </p>
+<div class="py-3">
+  <h1 class="pb-5"> <%= webapp.project_name %></h1>
+  <div class="grid grid-col-3">
+    <div class="col-span-2 pr-10">
+      <h3>At a Glance</h3>
+      <div>
+        <p>
+          <%= webapp.description %>
+        </p>
+      </div>
+      <div>
+        <p>
+          <strong>Notes</strong>
+          <%= webapp.notes %>
+        </p>
+      </div>
+    </div>
+    <div class= "col-start-3 col-span-1">
+      <h3>Support</h3>
+      <div>
+        <strong>Documentation</strong>
+        <%= webapp.documentation %>
+      </div>
+      <strong>Developers</strong>
+      <% webapp.developers.each do |w| %>
+        <ul>
+          <li>        <%= link_to(w.full_name, w) %>
+          </li>
+        </ul>
+      <% end %>
+    </div>
+  </div>
+  <div>
+    <h3>Technical Information</h3>
+    <div>
+      <strong>Language</strong>
+      <%= webapp.language %>
+    </div>
+    <div>
+      <p>
+        <strong>Framework</strong>
+        <%= webapp.framework %>
+      </p>
+    </div>
+    <div>
+      <strong>Status</strong>
+      <%= webapp.status %>
+    </div>
+    <div>
+      <strong>Authentication</strong>
+      <%= webapp.authentication %>
+    </div>
+    <div>
+      <strong>Server OS</strong>
+      <%= webapp.server_os %>
+    </div>
+    <div>
+      <strong>Server location</strong>
+      <%= webapp.server_location %>
+    </div>
+    <div>
+      <p>
+        <strong>Risk Manage Consideration</strong>
+        <%= webapp.risk_manage_consideration %>
+      </p>
+    </div>
+    <div>
+      <strong>Launch Date</strong>
+      <%= webapp.launch_date %>
+    </div>
+    <div>
+      <p>
+        <strong>End of Life Date</strong>
+        <%= webapp.end_of_life_date %>
+      </p>
+    </div>
+  </div>
 </div>
 <%# Full Table Header %>
 <%# <thead class="border border-l-0 border-r-0 border-gray-um60">

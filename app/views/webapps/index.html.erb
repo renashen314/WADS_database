@@ -1,15 +1,15 @@
 <%# <%= render "layouts/flash" %>
 <div class="container px-1 mb-20">
-  <h1 class="mb-4">Webapps</h1>
-  <div>
-    <button class="secondary_blue_button">
+  <div class="flex flex-row justify-between py-2">
+    <h1>Webapps</h1>
+    <button class="secondary_blue_button ">
       <%= link_to "New webapp", new_webapp_path %>
     </button>
   </div>
   <table class="mi_table">
     <thead class="border border-l-0 border-r-0 border-gray-um60">
       <tr>
-        <th class="header_th active:underline"><%= link_to "Project Name", :sort => "project_name"%></th>
+        <th class="header_th"><%= link_to "Project Name", :sort => "project_name"%></th>
         <th class="header_th"><%= link_to "Language", :sort => "language"%></th>
         <th class="header_th"><%= link_to "Framework", :sort => "framework"%></th>
         <th class="header_th">Developers</th>
@@ -20,7 +20,7 @@
     <tbody>
       <% @webapps.each do |a|%>
         <tr>
-          <td class="mi_tbody_td ">
+          <td class="mi_tbody_td hover:underline ">
             <%= link_to(a.project_name, a) %>
           </td>
           <td class="mi_tbody_td">
@@ -32,7 +32,7 @@
           <td class="mi_tbody_td">
             <ul>
               <% a.developers.each do |w| %>
-                <li><%= link_to(w.full_name, w) %></li>
+                <li class="hover:underline"><%= link_to(w.full_name, w) %></li>
               <% end %>
             </ul>
           </td>
