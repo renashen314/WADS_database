@@ -23,6 +23,8 @@
 class Webapp < ApplicationRecord
     has_many :dev_apps, dependent: :destroy
     has_many :developers, through: :dev_apps 
+    accepts_nested_attributes_for :developers
 
     validates_presence_of :project_name, :language, :framework, :description, :status, :authentication, :database, :documentation, :git_repo
+    validates :project_name, :uniqueness => true
 end

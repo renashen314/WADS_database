@@ -8,13 +8,19 @@
               <div class="inline-block h-8 justify-self-start content-start items-start">
                 <%= image_tag 'mlsa.png', alt: 'LSA Logo', height: '35.75', width: '100', class: '' %>
               </div>
-              <span class="text-white font text-3xl pl-2 font-sans font-medium">
-                Webapp Database
+              <span class="text-white font text-3xl px-4 font-sans font-medium">
+                Database
               </span>
             </div>
-            <div class="hidden sm:ml-6 sm:flex sm:space-x-4 pl-2"></div>
-            <div class="header_link">
-              <%= link_to "Developers", developers_path, class: "#{class_names(active: current_page?(developers_path))}" %>
+            <div class="hidden sm:ml-6 sm:flex sm:space-x-4 pl-2">
+              <div class="header_link">
+                <%= link_to "Developers", developers_path, class: "#{class_names(active: current_page?(developers_path))}" %>
+              </div>
+            </div>
+            <div class="hidden sm:ml-6 sm:flex sm:space-x-4 pl-2">
+              <div class="header_link">
+                <%= link_to "Web Applications", webapps_path, class: "#{class_names(active: current_page?(developers_path))}" %>
+              </div>
             </div>
           </div>
         <% end %>

@@ -1,8 +1,9 @@
 <%# <%= render "layouts/flash" %>
 <div class="container px-1 mb-20">
+  <p style="color: green"><%= notice %></p>
   <div class="flex flex-row justify-between py-2">
     <h1>Webapps</h1>
-    <button class="secondary_blue_button ">
+    <button class="secondary_blue_button">
       <%= link_to "New webapp", new_webapp_path %>
     </button>
   </div>
@@ -47,14 +48,3 @@
     </tbody>
   </table>
 </div>
-<p style="color: green"><%= notice %></p>
-<% if false %>
-  <div id="webapps" class="min-w-full">
-    <% @webapps.each do |webapp| %>
-      <%= render webapp %>
-      <p>
-        <%= link_to "Show this webapp", webapp %>
-      </p>
-    <% end %>
-  </div>
-<% end %>

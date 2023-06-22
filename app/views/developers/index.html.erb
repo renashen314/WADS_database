@@ -1,14 +1,31 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Developers</h1>
-
-<div id="developers">
-  <% @developers.each do |developer| %>
-    <%= render developer %>
-    <p>
-      <%= link_to "Show this developer", developer %>
-    </p>
-  <% end %>
+<div class="container mx-auto">
+  <p style="color: green"><%= notice %></p>
+  <div class="flex flex-row justify-between py-2">
+    <h1>Developers</h1>
+    <button class="secondary_blue_button">
+      <%= link_to "New developer", new_developer_path %>
+    </button>
+  </div>
+  <div>
+    <table class="mi_table">
+      <thead class="border border-l-0 border-r-0 border-gray-um60">
+        <tr>
+          <th class="header_th"><%= link_to "Name", :sort => "first_name"%></th>
+          <th class="header_th"><%= link_to "Uniqname", :sort => "uniqname"%></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @developers.each do |a|%>
+          <tr>
+            <td class="mi_tbody_td hover:underline ">
+              <%= link_to(a.full_name, a) %>
+            </td>
+            <td class="mi_tbody_td">
+              <%= a.uniqname %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>
-
-<%= link_to "New developer", new_developer_path %>

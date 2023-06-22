@@ -16,4 +16,5 @@ class Developer < ApplicationRecord
     end
 
     validates_presence_of :uniqname, :first_name, :last_name
+    validates_uniqueness_of :uniqname
 end
