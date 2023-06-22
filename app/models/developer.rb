@@ -15,6 +15,14 @@ class Developer < ApplicationRecord
         "#{first_name} #{last_name}"
     end
 
+    def self.ransackable_attributes(auth_object = nil)
+        ["first_name", "last_name", "uniqname"]
+        end
+
+    def self.ransackable_associations(auth_object = nil)
+        ["dev_apps", "webapps"]
+    end
+
     validates_presence_of :uniqname, :first_name, :last_name
     validates_uniqueness_of :uniqname
 end

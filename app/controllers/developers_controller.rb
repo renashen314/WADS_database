@@ -3,7 +3,8 @@ class DevelopersController < ApplicationController
 
   # GET /developers or /developers.json
   def index
-    @developers = Developer.all
+    @search = Developer.ransack(params[:q])
+    @developers = @search.result
   end
 
   # GET /developers/1 or /developers/1.json

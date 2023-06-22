@@ -6,26 +6,31 @@
       <%= link_to "New developer", new_developer_path %>
     </button>
   </div>
-  <div>
-    <table class="mi_table">
-      <thead class="border border-l-0 border-r-0 border-gray-um60">
-        <tr>
-          <th class="header_th"><%= link_to "Name", :sort => "first_name"%></th>
-          <th class="header_th"><%= link_to "Uniqname", :sort => "uniqname"%></th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @developers.each do |a|%>
+  <div class="flex flex-row pt-5">
+    <div class="grow-0 pr-10">
+      <%= render "search"%>
+    </div>
+    <div class="grow">
+      <table class="mi_table">
+        <thead class="border border-l-0 border-r-0 border-gray-um60">
           <tr>
-            <td class="mi_tbody_td hover:underline ">
-              <%= link_to(a.full_name, a) %>
-            </td>
-            <td class="mi_tbody_td">
-              <%= a.uniqname %>
-            </td>
+            <th class="header_th"><%= sort_link(@search, :last_name, 'Name', default_order: :desc) %></th>
+            <th class="header_th"><%= sort_link(@search, :uniqname, 'Uniqname', default_order: :desc) %></th>
           </tr>
-        <% end %>
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          <% @developers.each do |a|%>
+            <tr>
+              <td class="mi_tbody_td hover:underline ">
+                <%= link_to(a.full_name, a) %>
+              </td>
+              <td class="mi_tbody_td">
+                <%= a.uniqname %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
