@@ -25,6 +25,13 @@ class Webapp < ApplicationRecord
     has_many :developers, through: :dev_apps 
     accepts_nested_attributes_for :developers
 
+    def self.ransackable_attributes(auth_object = nil)
+        ["app_url", "authentication", "created_at", "database", "description", "documentation", "end_of_life_date", "framework", "git_repo", "id", "language", "launch_date", "notes", "project_name", "risk_manage_consideration", "server_location", "server_os", "status", "updated_at"]
+      end
+
+    def self.ransackable_associations(auth_object = nil)
+        ["dev_apps", "developers"]
+    end
     validates_presence_of :project_name, :language, :framework, :description, :status, :authentication, :database, :documentation, :git_repo
     validates :project_name, :uniqueness => true
 end

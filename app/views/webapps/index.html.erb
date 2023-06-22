@@ -7,44 +7,50 @@
       <%= link_to "New webapp", new_webapp_path %>
     </button>
   </div>
-  <table class="mi_table">
-    <thead class="border border-l-0 border-r-0 border-gray-um60">
-      <tr>
-        <th class="header_th"><%= link_to "Project Name", :sort => "project_name"%></th>
-        <th class="header_th"><%= link_to "Language", :sort => "language"%></th>
-        <th class="header_th"><%= link_to "Framework", :sort => "framework"%></th>
-        <th class="header_th">Developers</th>
-        <th class="header_th">Description</th>
-        <th class="header_th">Git Repository</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @webapps.each do |a|%>
-        <tr>
-          <td class="mi_tbody_td hover:underline ">
-            <%= link_to(a.project_name, a) %>
-          </td>
-          <td class="mi_tbody_td">
-            <%= a.language %>
-          </td>
-          <td class="mi_tbody_td">
-            <%= a.framework %>
-          </td>
-          <td class="mi_tbody_td">
-            <ul>
-              <% a.developers.each do |w| %>
-                <li class="hover:underline"><%= link_to(w.full_name, w) %></li>
-              <% end %>
-            </ul>
-          </td>
-          <td class="mi_tbody_td">
-            <%= a.description %>
-          </td>
-          <td class="mi_tbody_td">
-            <%= a.git_repo %>
-          </td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-</div>
+  <div class="flex flex-row pt-5">
+    <div class="grow-0 pr-10">
+      <%= render "search"%>
+    </div>
+    <div class="grow">
+      <table class="mi_table">
+        <thead class="border border-l-0 border-r-0 border-gray-um60">
+          <tr>
+            <th class="header_th"><%= sort_link(@search, :project_name, 'Project Name', default_order: :desc) %></th>
+            <th class="header_th"><%= sort_link(@search, :Language, 'Language', default_order: :desc) %></th>
+            <th class="header_th"><%= sort_link(@search, :framework, 'Framework', default_order: :desc) %></th>
+            <th class="header_th">Developers</th>
+            <th class="header_th">Description</th>
+            <th class="header_th">Git Repository</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @webapps.each do |a|%>
+            <tr>
+              <td class="mi_tbody_td hover:underline ">
+                <%= link_to(a.project_name, a) %>
+              </td>
+              <td class="mi_tbody_td">
+                <%= a.language %>
+              </td>
+              <td class="mi_tbody_td">
+                <%= a.framework %>
+              </td>
+              <td class="mi_tbody_td">
+                <ul>
+                  <% a.developers.each do |w| %>
+                    <li class="hover:underline"><%= link_to(w.full_name, w) %></li>
+                  <% end %>
+                </ul>
+              </td>
+              <td class="mi_tbody_td">
+                <%= a.description %>
+              </td>
+              <td class="mi_tbody_td">
+                <%= a.git_repo %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>

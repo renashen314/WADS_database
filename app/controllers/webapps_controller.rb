@@ -3,7 +3,8 @@ class WebappsController < ApplicationController
 
   # GET /webapps or /webapps.json
   def index
-    @webapps = Webapp.order(params[:sort])
+    @search = Webapp.ransack(params[:q])
+    @webapps = @search.result
   end
 
   # GET /webapps/1 or /webapps/1.json
@@ -56,7 +57,6 @@ class WebappsController < ApplicationController
       format.json { head :no_content }
     end
   end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_webapp
