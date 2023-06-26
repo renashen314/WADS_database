@@ -7,18 +7,18 @@
     <div class="flex flex-col space-y-4">
       <div class="flex flex-col w-fit">
         <%= f.label :project_name %>
-        <%= f.search_field :project_name_cont %>
+        <%= f.search_field :project_name_cont, placeholder: "LSA Course Guide" %>
       </div>
       <div class="flex flex-col w-fit">
         <%= f.label :language %>
-        <%= f.search_field :language_cont %>
+        <%= f.search_field :language_cont, placeholder: "Ruby 3"%>
       </div>
       <div class="flex flex-col w-fit">
         <%= f.label :framework %>
-        <%= f.search_field :framework_cont %>
+        <%= f.search_field :framework_cont, placeholder: "Rails 7" %>
       </div>
       <div class="flex flex-row justify-between">
-        <div class="w-fit secondary_yellow_button"><%= link_to "Clear Search", request.path, class:"cancel-button" %></div>
+        <div class="w-fit clear_filters"><%= link_to "Clear filters", request.path, class:"cancel-button" %></div>
         <div class="w-fit secondary_yellow_button "><%= f.submit %>
         </div>
       </div>

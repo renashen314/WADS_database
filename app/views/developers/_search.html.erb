@@ -7,18 +7,18 @@
     <div class="flex flex-col space-y-4">
       <div class="flex flex-col w-fit">
         <%= f.label :first_name %>
-        <%= f.search_field :first_name_cont %>
+        <%= f.search_field :first_name_cont, placeholder: "John" %>
       </div>
       <div class="flex flex-col w-fit">
         <%= f.label :last_name %>
-        <%= f.search_field :last_name_cont %>
+        <%= f.search_field :last_name_cont, placeholder: "Smith" %>
       </div>
       <div class="flex flex-col w-fit">
         <%= f.label :uniqname %>
-        <%= f.search_field :uniqname_cont %>
+        <%= f.search_field :uniqname_cont, placeholder: "jsmith" %>
       </div>
       <div class="flex flex-row justify-between">
-        <div class="w-fit secondary_yellow_button"><%= link_to "Clear Search", request.path, class:"cancel-button" %></div>
+        <div class="w-fit clear_filters"><%= link_to "Clear Filters", request.path, class:"cancel-button" %></div>
         <div class="w-fit secondary_yellow_button "><%= f.submit %>
         </div>
       </div>

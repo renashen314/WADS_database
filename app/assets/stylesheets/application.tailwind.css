@@ -143,6 +143,10 @@ from https://tailwindcss.com/docs/adding-custom-styles
     @apply py-2 px-4 font-montserrat font-medium leading-7 text-xs border rounded-md text-blue-umblue bg-yellow-ummaze;
   }
 
+  .clear_filters {
+    @apply py-2 px-4 font-montserrat font-medium leading-7 text-xs border-yellow-ummaze border-2 rounded-md text-blue-umblue;
+  }
+
   .secondary_yellow_button:hover {
     @apply underline text-blue-umblue bg-white border-solid border-yellow-ummaze border-2;
   }
