@@ -6,15 +6,15 @@
   <%= search_form_for @search do |f| %>
     <div class="flex flex-col space-y-4">
       <div class="flex flex-col w-fit">
-        <%= f.label :first_name_cont %>
+        <%= f.label :first_name %>
         <%= f.search_field :first_name_cont %>
       </div>
       <div class="flex flex-col w-fit">
-        <%= f.label :last_name_cont %>
+        <%= f.label :last_name %>
         <%= f.search_field :last_name_cont %>
       </div>
       <div class="flex flex-col w-fit">
-        <%= f.label :uniqname_cont %>
+        <%= f.label :uniqname %>
         <%= f.search_field :uniqname_cont %>
       </div>
       <div class="flex flex-row justify-between">

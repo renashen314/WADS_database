@@ -22,7 +22,11 @@
       <%= form.label :uniqname, style: "display: block" %>
       <%= form.text_field :uniqname %>
     </div>
-    <div class="flex flex-row justify-center blue_secondary_button w-fit mt-4">
+    <div>
+      <label for="webapp_id">Select a webapp:</label>
+      <%= form.collection_select(:webapp_id, Webapp.all, :id, :project_name,  :prompt => true)%>
+    </div>
+    <div class="flex flex-row justify-center secondary_blue_button w-fit mt-4">
       <%= form.submit %>
     </div>
   <% end %>

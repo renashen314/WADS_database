@@ -14,6 +14,7 @@ class WebappsController < ApplicationController
   # GET /webapps/new
   def new
     @webapp = Webapp.new
+    @webapp.developers.build
   end
 
   # GET /webapps/1/edit
@@ -65,6 +66,6 @@ class WebappsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def webapp_params
-      params.require(:webapp).permit(:project_name, :language, :framework, :description, :notes, :status, :authentication, :database, :server_os, :server_location, :documentation, :git_repo, :app_url, :risk_manage_consideration, :launch_date, :end_of_life_date)
+      params.require(:webapp).permit(:project_name, :language, :framework, :description, :notes, :status, :authentication, :database, :server_os, :server_location, :documentation, :git_repo, :app_url, :risk_manage_consideration, :launch_date, :end_of_life_date, developers_attributes: [:first_name, :last_name, :uniqname])
     end
 end

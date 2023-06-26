@@ -20,6 +20,7 @@
             <th class="header_th"><%= sort_link(@search, :framework, 'Framework', default_order: :desc) %></th>
             <th class="header_th">Developers</th>
             <th class="header_th">Description</th>
+            <th class="header_th">Status</th>
             <th class="header_th">Git Repository</th>
           </tr>
         </thead>
@@ -44,6 +45,9 @@
               </td>
               <td class="mi_tbody_td">
                 <%= a.description %>
+              </td>
+              <td class="mi_tbody_td">
+                <%= a.status %>
               </td>
               <td class="mi_tbody_td">
                 <%= a.git_repo %>

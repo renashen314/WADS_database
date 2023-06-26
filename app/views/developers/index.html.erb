@@ -16,6 +16,7 @@
           <tr>
             <th class="header_th"><%= sort_link(@search, :last_name, 'Name', default_order: :desc) %></th>
             <th class="header_th"><%= sort_link(@search, :uniqname, 'Uniqname', default_order: :desc) %></th>
+            <th class="header_th">Web Applications</th>
           </tr>
         </thead>
         <tbody>
@@ -26,6 +27,13 @@
               </td>
               <td class="mi_tbody_td">
                 <%= a.uniqname %>
+              </td>
+              <td class="mi_tbody_td">
+                <ul>
+                  <% a.webapps.each do |w| %>
+                    <li class="hover:underline"><%= link_to(w.project_name, w) %></li>
+                  <% end %>
+                </ul>
               </td>
             </tr>
           <% end %>
