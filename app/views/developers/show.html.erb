@@ -1,7 +1,23 @@
-<p style="color: green"><%= notice %></p>
-<%= render @developer %>
-<div>
-  <%= link_to "Edit this developer", edit_developer_path(@developer) %> |
-  <%= link_to "Back to developers", developers_path %>
-  <%= button_to "Destroy this developer", @developer, method: :delete %>
+<div class="container mx-auto">
+  <p style="color: green"><%= notice %></p>
+  <div class="flex flex-col">
+    <div><%= render @developer %></div>
+    <div class="flex flex-row justify-between">
+      <div class="py-2">
+        <button class="secondary_blue_button">
+          <%= link_to "Back to webapps", webapps_path %>
+        </button>
+      </div>
+      <div class="py-2">
+        <button class="secondary_blue_button">
+          <%= link_to "Edit this developer", edit_developer_path(@developer) %>
+        </button>
+      </div>
+      <div class="py-2">
+        <button class="secondary_blue_button">
+          <%= link_to "Destroy this developer", @developer, method: :delete %>
+        </button>
+      </div>
+    </div>
+  </div>
 </div>

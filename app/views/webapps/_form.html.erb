@@ -26,10 +26,6 @@
     <%= form.text_area :description %>
   </div>
   <div>
-    <label for="developer_id">Select a developer:</label>
-    <%= form.collection_select(:developer_id, Developer.all, :id, :full_name,  :prompt => true)%>
-  </div>
-  <div>
     <%= form.label :notes, style: "display: block" %>
     <%= form.text_area :notes %>
   </div>
