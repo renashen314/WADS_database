@@ -14,9 +14,7 @@
         </button>
       </div>
       <div class="py-2">
-        <button class="secondary_blue_button">
-          <%= link_to "Destroy this developer", @developer, method: :delete %>
-        </button>
+        <%= button_to "Delete", @developer, method: :delete, class: "secondary_blue_button"%>
       </div>
     </div>
   </div>

@@ -1,5 +1,6 @@
 class WebappsController < ApplicationController
   before_action :set_webapp, only: %i[ show edit update destroy ]
+  skip_before_action :authenticate_user!, only: [:index, :show]
 
   # GET /webapps or /webapps.json
   def index
@@ -19,6 +20,9 @@ class WebappsController < ApplicationController
 
   # GET /webapps/1/edit
   def edit
+    @webapp = Webapp.find(params[:id])
+    authorize! :edit, @webapp
+    render :edit
   end
 
   # POST /webapps or /webapps.json
@@ -66,6 +70,6 @@ class WebappsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def webapp_params
-      params.require(:webapp).permit(:project_name, :language, :framework, :description, :notes, :status, :authentication, :database, :server_os, :server_location, :documentation, :git_repo, :app_url, :risk_manage_consideration, :launch_date, :end_of_life_date, developers_attributes: [:first_name, :last_name, :uniqname])
+      params.require(:webapp).permit(:project_name, :language, :framework, :description, :notes, :status, :authentication, :database, :server_os, :server_location, :documentation, :git_repo, :app_url, :risk_manage_consideration, :launch_date, :end_of_life_date)
     end
 end

@@ -8,6 +8,7 @@
 # last_name   :varchar      not null
 
 class Developer < ApplicationRecord
+    resourcify
     has_many :dev_apps, dependent: :destroy
     has_many :webapps, through: :dev_apps
 

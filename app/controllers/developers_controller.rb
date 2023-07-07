@@ -1,5 +1,6 @@
 class DevelopersController < ApplicationController
   before_action :set_developer, only: %i[ show edit update destroy ]
+  skip_before_action :authenticate_user!, only: [:index, :show]
 
   # GET /developers or /developers.json
   def index
