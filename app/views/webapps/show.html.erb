@@ -13,7 +13,6 @@
       </button>
     </div>
     <div class="py-2">
-      <button class="secondary_blue_button"><%= link_to "Delete", @webapp, method: :delete %> </button>
+      <%= button_to "Delete", @webapp, method: :delete, class: "secondary_blue_button"%>
     </div>
   </div>
-</div>

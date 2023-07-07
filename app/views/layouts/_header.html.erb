@@ -22,6 +22,19 @@
                 <%= link_to "Web Applications", webapps_path, class: "#{class_names(active: current_page?(developers_path))}" %>
               </div>
             </div>
+            <% if user_signed_in? %>
+              <div class="hidden sm:ml-6 sm:flex sm:space-x-4 pl-2">
+                <div class="header_link">
+                  <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "#{class_names(active: current_page?(developers_path))}" %>
+                </div>
+              </div>
+            <% else %>
+              <div class="hidden sm:ml-6 sm:flex sm:space-x-4 pl-2">
+                <div class="header_link">
+                  <%= link_to "Sign in", new_user_session_path, class: "#{class_names(active: current_page?(developers_path))}" %>
+                </div>
+              </div>
+            <% end %>
           </div>
         <% end %>
       </div>
