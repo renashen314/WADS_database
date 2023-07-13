@@ -11,7 +11,7 @@ class Developer < ApplicationRecord
     resourcify
     has_many :dev_apps, dependent: :destroy
     has_many :webapps, through: :dev_apps
-    has_one :user
+    belongs_to :user
 
     def full_name
         "#{first_name} #{last_name}"
