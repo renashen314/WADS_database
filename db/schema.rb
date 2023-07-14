@@ -84,5 +84,4 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_13_203515) do
 
   add_foreign_key "dev_apps", "developers"
   add_foreign_key "dev_apps", "webapps"
-  add_foreign_key "developers", "users"
 end

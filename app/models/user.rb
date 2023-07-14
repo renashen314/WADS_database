@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   rolify
-  has_one :developer
+  has_one :developer, dependent: :destroy
   after_create :create_dev
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable

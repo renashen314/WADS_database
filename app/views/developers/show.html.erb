@@ -8,14 +8,16 @@
           <%= link_to "Back to webapps", webapps_path %>
         </button>
       </div>
-      <div class="py-2">
-        <button class="secondary_blue_button">
-          <%= link_to "Edit this developer", edit_developer_path(@developer) %>
-        </button>
-      </div>
-      <div class="py-2">
-        <%= button_to "Delete", @developer, method: :delete, class: "secondary_blue_button"%>
-      </div>
     </div>
   </div>
 </div>
+<% if false%>
+  <div class="py-2">
+    <button class="secondary_blue_button">
+      <%= link_to "Edit this developer", edit_developer_path(@developer) %>
+    </button>
+  </div>
+  <div class="py-2">
+    <%= button_to "Delete", @developer, method: :delete, class: "secondary_blue_button"%>
+  </div>
+<% end%>
