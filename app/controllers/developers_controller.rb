@@ -58,6 +58,14 @@ class DevelopersController < ApplicationController
     end
   end
 
+  # controller for multi-selection
+  # select dev from Developer.all.map { |person|, person.uniqname }
+  # save selected value in dev_app
+  # def select
+  #   @developer = Developer.find(developer_params)
+  #   @dev_apps = Developer.find(developer_params)
+  # end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_developer

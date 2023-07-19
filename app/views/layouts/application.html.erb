@@ -8,11 +8,22 @@
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <link href="../dist/easy-autocomplete.min.css" rel="stylesheet" type="text/css">
+    <script src="../lib/jquery-1.11.2.min.js"></script>
+    <script src="../dist/jquery.easy-autocomplete.min.js" type="text/javascript" ></script>
   </head>
   <body>
     <%= render "/layouts/header" %>
     <main class="container mx-auto mt-10 px-5 flex">
       <%= yield %>
     </main>
+    <script>
+      var options = {
+      	data: ["Ruby 3", "React", "Angular", "red", "yellow"],
+
+      };
+
+      $("#simple").easyAutocomplete(options);
+    </script>
   </body>
 </html>

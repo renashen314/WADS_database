@@ -8,8 +8,9 @@
 # last_name   :varchar      not null
 
 class Developer < ApplicationRecord
-    has_many :dev_apps, dependent: :destroy
-    has_many :webapps, through: :dev_apps
+    has_many :webapps, through: :dev_apps, association_foreign_key: :developer_id, dependent: :destroy
+    has_many :dev_apps
+    validates :uniqname, uniqueness: { scope: :developer, message: "already exsits" }
 
     def full_name
         "#{first_name} #{last_name}"

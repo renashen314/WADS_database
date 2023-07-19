@@ -44,6 +44,12 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 
+gem 'jquery-rails'
+
+gem 'rails-jquery-autocomplete'
+
+gem 'formtastic', '~> 4.0'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
@@ -72,5 +78,7 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+
 
 gem "tailwindcss-rails", "~> 2.0"

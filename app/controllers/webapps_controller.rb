@@ -1,6 +1,6 @@
 class WebappsController < ApplicationController
   before_action :set_webapp, only: %i[ show edit update destroy ]
-
+  autocomplete :webapp, :developer
   # GET /webapps or /webapps.json
   def index
     @search = Webapp.ransack(params[:q])
@@ -24,9 +24,15 @@ class WebappsController < ApplicationController
   # POST /webapps or /webapps.json
   def create
     @webapp = Webapp.new(webapp_params)
+    @developer = Developer.all
 
     respond_to do |format|
       if @webapp.save
+        if @developer?
+          
+        end
+          
+        end
         format.html { redirect_to webapp_url(@webapp), notice: "Webapp was successfully created." }
         format.json { render :show, status: :created, location: @webapp }
       else
@@ -53,6 +59,7 @@ class WebappsController < ApplicationController
   def destroy
     @webapp.destroy
 
+
     respond_to do |format|
       format.html { redirect_to webapps_url, notice: "Webapp was successfully destroyed." }
       format.json { head :no_content }
@@ -66,6 +73,10 @@ class WebappsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def webapp_params
-      params.require(:webapp).permit(:project_name, :language, :framework, :description, :notes, :status, :authentication, :database, :server_os, :server_location, :documentation, :git_repo, :app_url, :risk_manage_consideration, :launch_date, :end_of_life_date, developers_attributes: [:first_name, :last_name, :uniqname])
+      params.require(:webapp).permit(:project_name, :language, :framework, :description, :notes, :status, 
+        :authentication, :database, :server_os, :server_location, :documentation, :git_repo, :app_url, 
+        :risk_manage_consideration, :launch_date, :end_of_life_date, dev_apps_attributes: %i[
+          id, dev_id, app_id, uniqname, _destroy],
+        developers_attributes: [:first_name, :last_name, :uniqname])
     end
 end

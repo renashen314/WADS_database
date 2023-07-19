@@ -1,0 +1,108 @@
+<%= form_with(model: webapp) do |f| %>
+  <% if webapp.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(webapp.errors.count, "error") %> prohibited this webapp from being saved:</h2>
+      <ul>
+        <% webapp.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div>
+    <%= f.label :project_name, style: "display: block" %>
+    <%= f.text_field :project_name %>
+  </div>
+  <%# allow multi-selection on developer %>
+  <div id="developers">
+    <%= f.fields_for :developers do |dev| %>
+      <%= render 'developer_fields', f: dev %>
+      <div>
+        <%= dev.select :uniqname, options_for_select(Developer.all.map { |person| [person.uniqname, person.first_name] }, @developer.select), {}, { multiple: true } %>
+        <%# <%= dev.select :uniqname, options_for_select(["Rena", "Debbie", "Dave"], { multiple: true })
+      </div>
+    <% end %>
+        <div class='links'>
+          <%= link_to_add_fields 'Add Developer', f, :developers %>
+        </div>
+      </div>
+      <%# ----------------------------- %>
+      <div>
+        <%= f.label :language, style: "display: block" %>
+        <%= f.text_field :language %>
+      </div>
+      <div>
+        <%= f.label :framework, style: "display: block" %>
+        <%= f.text_field :framework %>
+      </div>
+      <div>
+        <%= f.label :description, style: "display: block" %>
+        <%= f.text_area :description %>
+      </div>
+      <div>
+        <%= f.label :notes, style: "display: block" %>
+        <%= f.text_area :notes %>
+      </div>
+      <div>
+        <%= f.label :status, style: "display: block" %>
+        <%= f.text_field :status %>
+      </div>
+      <div>
+        <%= f.label :authentication, style: "display: block" %>
+        <%= f.text_field :authentication %>
+      </div>
+      <div>
+        <%= f.label :database, style: "display: block" %>
+        <%= f.text_field :database %>
+      </div>
+      <div>
+        <%= f.label :server_os, style: "display: block" %>
+        <%= f.text_field :server_os %>
+      </div>
+      <div>
+        <%= f.label :server_location, style: "display: block" %>
+        <%= f.text_field :server_location %>
+      </div>
+      <div>
+        <%= f.label :documentation, style: "display: block" %>
+        <%= f.text_field :documentation %>
+      </div>
+      <div>
+        <%= f.label :git_repo, style: "display: block" %>
+        <%= f.text_field :git_repo %>
+      </div>
+      <div>
+        <%= f.label :app_url, style: "display: block" %>
+        <%= f.text_field :app_url %>
+      </div>
+      <div>
+        <%= f.label :risk_manage_consideration, style: "display: block" %>
+        <%= f.text_field :risk_manage_consideration %>
+      </div>
+      <div>
+        <%= f.label :launch_date, style: "display: block" %>
+        <%= f.date_field :launch_date %>
+      </div>
+      <div>
+        <%= f.label :end_of_life_date, style: "display: block" %>
+        <%= f.date_field :end_of_life_date %>
+      </div>
+      <button class="primary_button">
+        <%= f.submit %>
+      </button>
+    <% end %>
+    <% if false %>
+      <div>
+        <label>If the developer does not exist, please create one: </label>
+      </div>
+      <div>
+        <%= f.fields_for :developers do |dev_builder| %>
+          <%= dev_builder.label :first_name %>
+          <%= dev_builder.text_field :first_name %><br>
+          <%= dev_builder.label :last_Name %>
+          <%= dev_builder.text_field :last_name %><br>
+          <%= dev_builder.label :uniqname %>
+          <%= dev_builder.text_field :uniqname %><br>
+        <% end %>
+      </div>
+    <% end %>
