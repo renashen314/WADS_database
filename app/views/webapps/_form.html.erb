@@ -26,8 +26,13 @@
     <%= form.text_area :description %>
   </div>
   <div>
-    <%= form.label :developer, style: "display: block" %>
-    <%= collection_check_boxes(:webapp, :developer_ids, Developer.all, :id, :first_name) %>
+    <%= form.label :developers, style: "display: block" %>
+    <%= collection_check_boxes(:webapp, :developer_ids, Developer.all, :id, :full_name) do |f| %>
+      <div>
+        <%= f.check_box %>
+        <%= f.label %>
+      </div>
+    <% end %>
   </div>
   <div>
     <%= form.label :notes, style: "display: block" %>
