@@ -6,6 +6,7 @@ class WebappsController < ApplicationController
   def index
     @search = Webapp.ransack(params[:q])
     @webapps = @search.result
+    @cuser = current_user
   end
 
   # GET /webapps/1 or /webapps/1.json
