@@ -23,8 +23,8 @@
       <%= form.text_field :uniqname %>
     </div>
     <div>
-      <label for="webapp_id">Select a webapp:</label>
-      <%= form.collection_select(:webapp_id, Webapp.all, :id, :project_name,  :prompt => true)%>
+      <%= form.label :webapp, style: "display: block" %>
+      <%= collection_check_boxes(:developer, :webapp_ids, Webapp.all, :id, :project_name) %>
     </div>
     <div class="flex flex-row justify-center secondary_blue_button w-fit mt-4">
       <%= form.submit %>
