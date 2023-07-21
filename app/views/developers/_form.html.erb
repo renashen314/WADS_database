@@ -23,6 +23,9 @@
       <%= form.text_field :uniqname %>
     </div>
     <div>
+      <%= form.file_field :image, class: "form-control"%>
+    </div>
+    <div>
       <%= form.label :webapp, style: "display: block" %>
       <%= collection_check_boxes(:developer, :webapp_ids, Webapp.all, :id, :project_name) do |f| %>
         <div>
