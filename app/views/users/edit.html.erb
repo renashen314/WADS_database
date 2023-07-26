@@ -1,0 +1,9 @@
+<%= @user.roles.first.name %>
+<%= form_with(model: @user) do |form| %>
+  <div>
+    <%= form.collection_select :role_ids, Role.order(:name),:id,:name, include_blank: true %>
+  </div>
+  <button class="primary_button">
+    <%= form.submit %>
+  </button>
+<% end %>
