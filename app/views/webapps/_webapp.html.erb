@@ -76,6 +76,20 @@
     </div>
   </div>
 </div>
+<% if user_signed_in?  %>
+  <% if current_user.roles_name.first == "admin" || current_user.roles.first.resource_id == webapp.id %>
+    <div class="flex flex-row justify-between">
+      <div class="py-2">
+        <button class="secondary_blue_button">
+          <%= link_to "Edit", edit_webapp_path(@webapp) %>
+        </button>
+      </div>
+      <div class="py-2">
+        <%= button_to "Delete", @webapp, method: :delete, class: "secondary_blue_button"%>
+      </div>
+    </div>
+  <% end %>
+<% end %>
 <%# Full Table Header %>
 <%# <thead class="border border-l-0 border-r-0 border-gray-um60">
     <tr>

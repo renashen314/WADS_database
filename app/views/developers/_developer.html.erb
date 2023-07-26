@@ -1,10 +1,17 @@
 <div class="p-6 w-fit block rounded-lg shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700 bg-white">
-  <h1><%= developer.full_name %></h1>
-  <p><%=developer.uniqname%></p>
-  <strong>Projects:</strong>
-  <ul>
-    <% developer.webapps.each do |webapp| %>
-      <li> <%= webapp.project_name %> </li>
+  <div class="flex flex-col">
+    <h1 class="py-2"><%= developer.full_name %></h1>
+    <% if developer.image.attached? %>
+      <div class="rounded-md flex justify-center"><%= image_tag developer.image%></div>
+    <% else %>
+      <div class="flex justify-center"><%= image_tag "placeholder.png" %></div>
     <% end %>
-  </ul>
+    <p><%=developer.uniqname%></p>
+    <strong>Projects:</strong>
+    <ul>
+      <% developer.webapps.each do |webapp| %>
+        <li> <%= webapp.project_name %> </li>
+      <% end %>
+    </ul>
+  </div>
 </div>

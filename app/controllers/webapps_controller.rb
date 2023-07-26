@@ -6,6 +6,7 @@ class WebappsController < ApplicationController
   def index
     @search = Webapp.ransack(params[:q])
     @webapps = @search.result
+    @cuser = current_user
   end
 
   # GET /webapps/1 or /webapps/1.json
@@ -70,6 +71,6 @@ class WebappsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def webapp_params
-      params.require(:webapp).permit(:project_name, :language, :framework, :description, :notes, :status, :authentication, :database, :server_os, :server_location, :documentation, :git_repo, :app_url, :risk_manage_consideration, :launch_date, :end_of_life_date)
+      params.require(:webapp).permit(:project_name, :language, :framework, :description, :notes, :status, :authentication, :database, :server_os, :server_location, :documentation, :git_repo, :app_url, :risk_manage_consideration, :launch_date, :end_of_life_date, developer_ids: [])
     end
 end

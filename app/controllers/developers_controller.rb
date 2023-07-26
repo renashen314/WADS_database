@@ -67,6 +67,6 @@ class DevelopersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def developer_params
-      params.require(:developer).permit(:uniqname, :first_name, :last_name)
+      params.require(:developer).permit(:uniqname, :first_name, :last_name, :image, webapp_ids: [])
     end
 end

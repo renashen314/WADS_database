@@ -1,18 +1,8 @@
 <p style="color: green"><%= notice %></p>
 <div class="flex flex-col">
-  <%= render @webapp %>
-  <div class="flex flex-row justify-between">
-    <div class="py-2">
-      <button class="secondary_blue_button">
-        <%= link_to "Edit", edit_webapp_path(@webapp) %>
-      </button>
-    </div>
-    <div class="py-2">
-      <button class="secondary_blue_button">
-        <%= link_to "Back to webapps", webapps_path %>
-      </button>
-    </div>
-    <div class="py-2">
-      <%= button_to "Delete", @webapp, method: :delete, class: "secondary_blue_button"%>
-    </div>
+  <div class="py-2">
+    <button class="secondary_blue_button">
+      <%= link_to "Back to webapps", webapps_path %>
+    </button>
   </div>
+  <%= render @webapp %>

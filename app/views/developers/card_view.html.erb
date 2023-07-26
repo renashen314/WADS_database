@@ -1,0 +1,12 @@
+<div class="flex flex-row pt-5">
+  <div class="grow-0 pr-10">
+    <%= render "card_search"%>
+  </div>
+  <div class="grid lg:grid-cols-3 md:grid-cols-2 gap-2 place-content-center
+              w-fit py-2
+              container mx-auto">
+    <% @developers.each do |card| %>
+      <%= render "developer", developer: card %>
+    <% end %>
+  </div>
+</div>

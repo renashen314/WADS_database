@@ -1,0 +1,19 @@
+<div class="container mx-auto">
+  <h1> Role Management </h1>
+  <div>
+    <% @users.each do |user| %>
+      <div class="py-2">
+        <%= user.developer.full_name %>
+        <div>Current Role: <%= user.roles.first.name %></div>
+        <%= form_with(model: @user) do |form| %>
+          <div class="py-2">
+            <%= form.collection_select :role_ids, Role.order(:name),:id,:name, include_blank: true %>
+          </div>
+          <button class="primary_button">
+            <%= form.submit %>
+          </button>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
