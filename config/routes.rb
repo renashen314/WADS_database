@@ -3,5 +3,6 @@ Rails.application.routes.draw do
   resources :users
   resources :webapps
   resources :developers
+  get "static_pages/about", to: "static_pages#about"
   root "static_pages#homepage"
 end
