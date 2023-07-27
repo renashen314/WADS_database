@@ -1,14 +1,16 @@
 class UsersController < ApplicationController
-    def manage_roles
-        @users = User.all
-
+    def index
+        @search = User.ransack(params[:q])
+        @users = @search.result
     end
     def show
-        
+        @user = User.find(params[:id]) 
+        @roles = Role.all
     end
 
     def edit
-        @user = User.find(params[:id])    
+        @user = User.find(params[:id]) 
+        @roles = Role.all
     end
 
     def update

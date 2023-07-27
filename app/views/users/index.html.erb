@@ -1,0 +1,15 @@
+<div class="container mx-auto flex flex-col justify-center">
+  <h1> Role Management </h1>
+  <div class="py-3"><%= render "search" %></div>
+  <% @users.each do |user| %>
+    <div class="w-1/2 p-3
+                      block rounded-lg
+                      shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700 bg-white flex flex-row justify-between">
+      <div class="self-center px-3"><%= user.developer.full_name %></div>
+      <div class="flex flex-row justify-items-end space-x-4">
+        <div class="secondary_yellow_button"><%= link_to "Show Roles", user_path(user) %></div>
+        <div class="secondary_yellow_button"><%= link_to "Edit Roles", edit_user_path(user) %></div>
+      </div>
+    </div>
+  <% end %>
+</div>

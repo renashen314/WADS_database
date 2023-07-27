@@ -24,6 +24,7 @@ class Webapp < ApplicationRecord
     resourcify
     has_many :dev_apps, dependent: :destroy
     has_many :developers, through: :dev_apps 
+    has_one :developer, dependent: :destroy
     
     def self.ransackable_attributes(auth_object = nil)
         ["app_url", "authentication", "created_at", "database", "description", "documentation", "end_of_life_date", "framework", "git_repo", "id", "language", "launch_date", "notes", "project_name", "risk_manage_consideration", "server_location", "server_os", "status", "updated_at"]

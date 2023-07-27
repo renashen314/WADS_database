@@ -1,0 +1,27 @@
+<div class="p-6
+                      w-1/2
+                      block rounded-lg
+                      shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700 bg-white">
+  <h3>Search</h3>
+  <%= search_form_for @search do |f| %>
+    <div class="flex flex-row space-x-5">
+      <div class="container mx-auto">
+        <div><%= f.label :first_name %></div>
+        <div><%= f.search_field :developer_first_name_cont %></div>
+      </div>
+      <div class="container mx-auto">
+        <div><%= f.label :last_name %></div>
+        <div class=""><%= f.search_field :developer_last_name_cont %></div>
+      </div>
+      <div class="container mx-auto">
+        <div><%= f.label :uniqname %></div>
+        <div class=""><%= f.search_field :developer_uniqname_cont %></div>
+      </div>
+    </div>
+    <div class="flex flex-row justify-between pt-4">
+      <div class="w-fit clear_filters"><%= link_to "Clear Search", request.path, class:"cancel-button" %></div>
+      <div class="w-fit secondary_yellow_button "><%= f.submit %>
+      </div>
+    </div>
+  <% end %>
+</div>

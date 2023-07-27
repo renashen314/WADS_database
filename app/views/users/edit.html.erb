@@ -1,9 +1,22 @@
-<%= @user.roles.first.name %>
-<%= form_with(model: @user) do |form| %>
-  <div>
-    <%= form.collection_select :role_ids, Role.order(:name),:id,:name, include_blank: true %>
-  </div>
-  <button class="primary_button">
-    <%= form.submit %>
-  </button>
+<div class="container mx-auto">
+  <h1>Edit <%= @user.developer.full_name %>'s Roles</h1>
+  <%= form_for @user do |f| %>
+    <% Role.all.each do |role| %>
+      <%= check_box_tag "user[role_ids][]", role.id, @user.role_ids.include?(role.id) %>
+      <% if (role.resource_id != nil) %>
+        <%= Webapp.find(role.resource_id).project_name %>
+      <% end %>
+      <%= role.name %></br>
+  <% end %>
+  <div class="blue_secondary_button"><%= f.submit %></div>
+<% end %>
+<% if false %>
+  <%= form_with(model: @user) do |form| %>
+    <div>
+      <%= form.collection_select :role_ids, Role.order(:name),:id,:name, include_blank: true %>
+    </div>
+    <button>
+      <%= form.submit %>
+    </button>
+  <% end %>
 <% end %>

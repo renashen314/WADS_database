@@ -11,6 +11,9 @@ module.exports = {
     './vendor/javascript/tailwindcss-stimulus-components.js'
   ],
   theme: {
+    container: {
+      center: true,
+    },
     extend: {
       fontFamily: {
         sans: ['Inter var'],
