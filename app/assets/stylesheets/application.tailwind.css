@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Oswald:wght@400;500;600&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -15,6 +14,7 @@
 from https://tailwindcss.com/docs/adding-custom-styles
 */
 
+
 @layer base {
   .header_link {
     @apply border-transparent text-blue-50 inline-flex items-center pr-1 pt-1 border-b-2 text-base font-normal hover:border-blue-900 text-blue-900;
@@ -24,11 +24,11 @@ from https://tailwindcss.com/docs/adding-custom-styles
     @apply text-blue-900 border-yellow-umyellow;
   }
   .unavailable {
-    @apply text-red-700
+    @apply text-red-700;
   }
 
   .available {
-    @apply text-green-700
+    @apply text-green-700;
   }
 
   h1 {
@@ -88,7 +88,7 @@ from https://tailwindcss.com/docs/adding-custom-styles
   }
 
   .body-sm-bold-text {
-    @apply text-sm font-semibold text-gray-900
+    @apply text-sm font-semibold text-gray-900;
   }
 
   .button_label {
@@ -241,8 +241,9 @@ from https://tailwindcss.com/docs/adding-custom-styles
   }
 
   .card_area {
-    @apply col-span-1 bg-white rounded-lg shadow-md divide-y divide-gray-400 px-2 place-items-stretch bg-white border border-gray-300 rounded-l
+    @apply col-span-1 bg-white rounded-lg shadow-md divide-y divide-gray-400 px-2 place-items-stretch bg-white border border-gray-300 rounded-l;
   }
+ 
 
   /* table */
 
@@ -255,7 +256,7 @@ from https://tailwindcss.com/docs/adding-custom-styles
   }
 
   .header_th {
-    @apply p-2 text-base font leading-5 lg:table-cell text-left;
+    @apply p-2 text-base font-sans leading-5 lg:table-cell text-left;
   }
 
   .mi_tbody_tr {
@@ -275,15 +276,15 @@ from https://tailwindcss.com/docs/adding-custom-styles
   }
 
   .fields--hide {
-    @apply hidden
+    @apply hidden;
   }
 
   .fields--display {
-    @apply block
+    @apply block;
   }
 
   .error_text {
-    @apply text-red-500
+    @apply text-red-500;
   }
   /* ... */
 }

@@ -1,29 +1,40 @@
 <div class="container mx-auto">
-  <div class="flex flex-col justify-center text-center space-y-10">
-    <div class="text-xl py-10"> The Web & Application Development Services (W&ADS) Database </div>
-    <div> The W&ADS Database keeps track of all web applications that W&ADS develops and maintains. Technical details about the web application, as well as its developers, are all included. </div>
+  <div class="flex flex-col justify-center text-center space-y-10 my-32 mx-96">
+    <div class="text-6xl py-5 font-bold">
+      <span>The</span>
+      <span class="hover:text-yellow-umyellow"><%= link_to "W&ADS", static_pages_about_path %></span>
+      <span>Database</span>
+    </div>
+    <div> Whether you're looking for specific information or just plain curious about the web applications W&ADS develops, this is the place for all your needs. The W&ADS Database keeps track of all web applications that W&ADS develops and maintains. Technical details about the web application, as well as its developers, are all included. </div>
+    <div class="secondary_yellow_button mx-64">
+      <%= link_to "Get Started", webapps_path %>
+    </div>
+    <div>
+      Part of W&ADS? Sign in 
+      <%= link_to "here", new_user_session_path, class: "hover: underline"%>
+    </div>
   </div>
 </div>
 <% if false %>
   <div class="relative overflow-hidden -mx-10 -mt-6"></div>
   <section aria-labelledby="sale-heading" class="relative max-w-7xl mx-auto px-20 pt-32 flex flex-col items-center text-center sm:px-6 lg:px-8">
-    <div class="max-w-2xl mx-auto lg:max-w-none">
-      <h1 class="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl lg:text-6xl" id="sale-heading">
-        The Web & Application Development Services (W&ADS) Database
-      </h1>
+    <div class="max-w-2xl mx-auto lg:max-w-none"></div>
+    <h1 class="text-xl font-extrabold tracking-tight text-gray-900 sm:text-5xl lg:text-6xl" id="sale-heading">
+      The Web & Application Development Services (W&ADS) Database
+    </h1>
+    <p class="mt-4 max-w-xl md:max-w-3xl mx-auto text-xl text-gray-700">
+      The W&ADS Database keeps track of all web applications that W&ADS develops and maintains. 
+    </p>
+  </div>
+  <div class="mx-auto">
+    <p class="secondary_yellow_button">
+      <%= link_to "Get Started", webapps_path%>
+    </p>
+    <div class="flex flex-col">
       <p class="mt-4 max-w-xl md:max-w-3xl mx-auto text-xl text-gray-700">
-        The W&ADS Database keeps track of all web applications that W&ADS develops and maintains. 
+        Part of W&ADS? 
       </p>
     </div>
-    <div class="mx-auto">
-      <p class="secondary_yellow_button">
-        <%= link_to "Get Started", webapps_path%>
-      </p>
-      <div class="flex flex-col">
-        <p class="mt-4 max-w-xl md:max-w-3xl mx-auto text-xl text-gray-700">
-          Part of W&ADS? 
-        </p>
-      </div>
-    </section>
-  </div>
+  </section>
+</div>
 <% end %>
