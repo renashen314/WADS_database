@@ -1,3 +1,5 @@
+<div
+  class="bg-[url('../app/assets/images/bg.jpeg')]"></div>
 <div class="container mx-auto">
   <div class="flex flex-col justify-center text-center space-y-10 my-32 mx-96">
     <div class="text-6xl py-5 font-bold">
@@ -10,8 +12,10 @@
       <%= link_to "Get Started", webapps_path %>
     </div>
     <div>
-      Part of W&ADS? Sign in 
-      <%= link_to "here", new_user_session_path, class: "hover: underline"%>
+      <% if !user_signed_in? %>
+        Part of W&ADS? Sign in 
+        <%= link_to "here", new_user_session_path, class: "hover: underline"%>
+      <% end %>
     </div>
   </div>
 </div>

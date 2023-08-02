@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   rolify
-  has_one :developer, dependent: :destroy
+  has_one :developer, :dependent => :destroy
   after_create :create_dev
   validate :check_mcommunity_group
   # Include default devise modules. Others available are:
@@ -17,8 +17,7 @@ class User < ApplicationRecord
   private
   def check_mcommunity_group
     uniq = self.email.split("@").first
-    errors.add(:email, "must be in W&ADS") unless LdapLookup.is_member_of_group?(uniq, "LSA TS Web and Application Development Services
-      ")
+    errors.add(:email, "must be in W&ADS") unless LdapLookup.is_member_of_group?(uniq, "LSA TS Web and Application Development Services")
   end
   def create_dev
     first = (LdapLookup.get_simple_name(self.email.split("@").first)).split.first
