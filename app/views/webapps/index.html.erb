@@ -1,5 +1,5 @@
 <%# <%= render "layouts/flash" %>
-<div class="container px-1 mb-20">
+<div class="container px-1 mb-20 ">
   <p style="color: green"><%= notice %></p>
   <div class="flex flex-row justify-between py-2">
     <h1>Webapps</h1>
@@ -48,7 +48,7 @@
                 </ul>
               </td>
               <td class="mi_tbody_td">
-                <%= a.description %>
+                <%= truncate(strip_tags(a.description), length: 200) %>
               </td>
               <td class="mi_tbody_td">
                 <%= a.status %>

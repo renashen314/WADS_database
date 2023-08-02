@@ -32,7 +32,7 @@ class WebappsController < ApplicationController
 
     respond_to do |format|
       if @webapp.save
-        format.html { redirect_to webapp_url(@webapp), notice: "Webapp was successfully created." }
+        format.html { redirect_to webapp_url(@webapp), flash.now[:notice] = "Webapp was successfully created." }
         format.json { render :show, status: :created, location: @webapp }
       else
         format.html { render :new, status: :unprocessable_entity }
