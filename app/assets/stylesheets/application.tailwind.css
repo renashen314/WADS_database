@@ -16,6 +16,7 @@ from https://tailwindcss.com/docs/adding-custom-styles
 
 
 @layer base {
+
   .header_link {
     @apply border-transparent text-blue-50 inline-flex items-center pr-1 pt-1 border-b-2 text-base font-normal hover:border-blue-900 text-blue-900;
   }
@@ -386,5 +387,12 @@ from https://tailwindcss.com/docs/adding-custom-styles
 @layer utilities {
   .content-auto {
     content-visibility: auto;
+  }
+
+  .home-background {
+    background-image: url("bg.jpeg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 }
