@@ -1,40 +1,37 @@
-<div>
+<div class="container mx-auto">
   <%= form_with(model: developer) do |form| %>
-    <% if developer.errors.any? %>
-      <div style="color: red">
-        <h2><%= pluralize(developer.errors.count, "error") %> prohibited this developer from being saved:</h2>
-        <ul>
-          <% developer.errors.each do |error| %>
-            <li><%= error.full_message %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
-    <div>
-      <%= form.label :first_name, style: "display: block" %>
-      <%= form.text_field :first_name %>
-    </div>
-    <div>
-      <%= form.label :last_name, style: "display: block" %>
-      <%= form.text_field :last_name %>
-    </div>
-    <div>
-      <%= form.label :uniqname, style: "display: block" %>
-      <%= form.text_field :uniqname %>
-    </div>
-    <div>
-      <%= form.file_field :image, class: "form-control"%>
-    </div>
-    <div>
-      <%= form.label :webapp, style: "display: block" %>
-      <%= collection_check_boxes(:developer, :webapp_ids, Webapp.all, :id, :project_name) do |f| %>
+    <div class="grid grid-cols-2 h-min gap-2 mx-16">
+      <div class="p-6 h-80 rounded-lg shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700 bg-white space-y-2">
         <div>
-          <%= f.check_box %>
-          <%= f.label %>
+          <%= form.label :first_name, style: "display: block" %>
+          <%= form.text_field :first_name, class: "w-full" %>
         </div>
-      <% end %>
+        <div>
+          <%= form.label :last_name, style: "display: block" %>
+          <%= form.text_field :last_name, class: "w-full" %>
+        </div>
+        <div>
+          <%= form.label :uniqname, style: "display: block" %>
+          <%= form.text_field :uniqname, class: "w-full" %>
+        </div>
+        <div>
+          <%= form.label :update_profile_picture, style: "display: block"%>
+          <%= form.file_field :image, class: "form-control"%>
+        </div>
+      </div>
+      <div class="p-8 h-80 rounded-lg overflow-auto shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700 bg-white space-y-2">
+        <h3> Associated Web Applications</h3>
+        <div class="py-2 space-y-2">
+          <%= collection_check_boxes(:developer, :webapp_ids, Webapp.all, :id, :project_name) do |f| %>
+            <div>
+              <%= f.check_box %>
+              <%= f.label %>
+            </div>
+          <% end %>
+        </div>
+      </div>
     </div>
-    <div class="flex flex-row justify-center secondary_blue_button w-fit mt-4">
+    <div class="secondary_yellow_button w-fit mx-auto text-center my-8">
       <%= form.submit %>
     </div>
   <% end %>

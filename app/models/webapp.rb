@@ -33,6 +33,6 @@ class Webapp < ApplicationRecord
     def self.ransackable_associations(auth_object = nil)
         ["dev_apps", "developers"]
     end
-    validates_presence_of :project_name, :language, :framework, :description, :status, :authentication, :database, :documentation, :git_repo
+    validates_presence_of :project_name, :language, :framework, :description
     validates :project_name, :uniqueness => true
 end

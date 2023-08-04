@@ -1,88 +1,86 @@
-<%= form_with(model: webapp) do |form| %>
-  <% if webapp.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(webapp.errors.count, "error") %> prohibited this webapp from being saved:</h2>
-      <ul>
-        <% webapp.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+<div class="container mx-auto ">
+  <%= form_with(model: webapp) do |form| %>
+    <div class="grid grid-cols-3 h-min gap-2 mx-16">
+      <div class="col-span-2 p-6 h-80 rounded-lg shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700 bg-white space-y-2">
+        <div>
+          <%= form.label :project_name, style: "display: block" %>
+          <%= form.text_field :project_name, class: "w-full" %>
+        </div>
+        <div>
+          <%= form.label :description, style: "display: block" %>
+          <%= form.text_area :description, class: "w-full" %>
+        </div>
+        <div>
+          <%= form.label :notes, style: "display: block" %>
+          <%= form.text_area :notes, class: "w-full" %>
+        </div>
+      </div>
+      <div class="col-span-1 p-6 h-80 overflow-auto rounded-lg shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700 bg-white">
+        <h3> Associated Developers</h3>
+        <%= collection_check_boxes(:webapp, :developer_ids, Developer.all, :id, :full_name) do |f| %>
+          <div>
+            <%= f.check_box %>
+            <%= f.label %>
+          </div>
         <% end %>
-      </ul>
+      </div>
+    </div>
+    <div class="grid grid-cols-2 gap-4 h-fit p-6 rounded-lg shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700 bg-white mx-16">
+      <div>
+        <%= form.label :language, style: "display: block" %>
+        <%= form.text_field :language, class: "w-full"  %>
+      </div>
+      <div>
+        <%= form.label :framework, style: "display: block" %>
+        <%= form.text_field :framework, class: "w-full" %>
+      </div>
+      <div>
+        <%= form.label :status, style: "display: block" %>
+        <%= form.text_field :status, class: "w-full" %>
+      </div>
+      <div>
+        <%= form.label :authentication, style: "display: block" %>
+        <%= form.text_field :authentication, class: "w-full" %>
+      </div>
+      <div>
+        <%= form.label :database, style: "display: block" %>
+        <%= form.text_field :database, class: "w-full" %>
+      </div>
+      <div>
+        <%= form.label :server_os, style: "display: block" %>
+        <%= form.text_field :server_os, class: "w-full" %>
+      </div>
+      <div>
+        <%= form.label :server_location, style: "display: block" %>
+        <%= form.text_field :server_location, class: "w-full" %>
+      </div>
+      <div>
+        <%= form.label :documentation, style: "display: block" %>
+        <%= form.text_field :documentation, class: "w-full" %>
+      </div>
+      <div>
+        <%= form.label :git_repo, style: "display: block" %>
+        <%= form.text_field :git_repo, class: "w-full" %>
+      </div>
+      <div>
+        <%= form.label :app_url, style: "display: block" %>
+        <%= form.text_field :app_url, class: "w-full" %>
+      </div>
+      <div>
+        <%= form.label :risk_manage_consideration, style: "display: block" %>
+        <%= form.text_field :risk_manage_consideration, class: "w-full" %>
+      </div>
+      <div>
+        <%= form.label :launch_date, style: "display: block" %>
+        <%= form.date_field :launch_date, class: "w-full" %>
+      </div>
+      <div>
+        <%= form.label :end_of_life_date, style: "display: block" %>
+        <%= form.date_field :end_of_life_date, class: "w-full" %>
+      </div>
+      <div class="secondary_yellow_button text-center w-full h-fit self-end">
+        <%= form.submit %>
+      </div>
     </div>
   <% end %>
-  <div>
-    <%= form.label :project_name, style: "display: block" %>
-    <%= form.text_field :project_name %>
-  </div>
-  <div>
-    <%= form.label :language, style: "display: block" %>
-    <%= form.text_field :language %>
-  </div>
-  <div>
-    <%= form.label :framework, style: "display: block" %>
-    <%= form.text_field :framework %>
-  </div>
-  <div>
-    <%= form.label :description, style: "display: block" %>
-    <%= form.text_area :description %>
-  </div>
-  <div>
-    <%= form.label :developers, style: "display: block" %>
-    <%= collection_check_boxes(:webapp, :developer_ids, Developer.all, :id, :full_name) do |f| %>
-      <div>
-        <%= f.check_box %>
-        <%= f.label %>
-      </div>
-    <% end %>
-  </div>
-  <div>
-    <%= form.label :notes, style: "display: block" %>
-    <%= form.text_area :notes %>
-  </div>
-  <div>
-    <%= form.label :status, style: "display: block" %>
-    <%= form.text_field :status %>
-  </div>
-  <div>
-    <%= form.label :authentication, style: "display: block" %>
-    <%= form.text_field :authentication %>
-  </div>
-  <div>
-    <%= form.label :database, style: "display: block" %>
-    <%= form.text_field :database %>
-  </div>
-  <div>
-    <%= form.label :server_os, style: "display: block" %>
-    <%= form.text_field :server_os %>
-  </div>
-  <div>
-    <%= form.label :server_location, style: "display: block" %>
-    <%= form.text_field :server_location %>
-  </div>
-  <div>
-    <%= form.label :documentation, style: "display: block" %>
-    <%= form.text_field :documentation %>
-  </div>
-  <div>
-    <%= form.label :git_repo, style: "display: block" %>
-    <%= form.text_field :git_repo %>
-  </div>
-  <div>
-    <%= form.label :app_url, style: "display: block" %>
-    <%= form.text_field :app_url %>
-  </div>
-  <div>
-    <%= form.label :risk_manage_consideration, style: "display: block" %>
-    <%= form.text_field :risk_manage_consideration %>
-  </div>
-  <div>
-    <%= form.label :launch_date, style: "display: block" %>
-    <%= form.date_field :launch_date %>
-  </div>
-  <div>
-    <%= form.label :end_of_life_date, style: "display: block" %>
-    <%= form.date_field :end_of_life_date %>
-  </div>
-  <button class="primary_button">
-    <%= form.submit %>
-  </button>
-<% end %>
+</div>

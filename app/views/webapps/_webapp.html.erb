@@ -1,37 +1,22 @@
-<div class="py-3">
-  <h1 class="pb-5"> <%= webapp.project_name %></h1>
-  <div class="grid grid-col-3">
-    <div class="col-span-2 pr-10">
-      <h3>At a Glance</h3>
-      <div>
-        <p>
-          <%= webapp.description %>
-        </p>
-      </div>
-      <div>
-        <p>
-          <strong>Notes</strong>
-          <%= webapp.notes %>
-        </p>
-      </div>
+<div class="grid grid-cols-3 gap-2 mx-16">
+  <div class="col-span-2 px-6 pt-6 h-full rounded-lg shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700 bg-white">
+    <h1 class="py-2"><%= webapp.project_name %></h1>
+    <div class="py-4">
+      <%= webapp.description %>
     </div>
-    <div class= "col-start-3 col-span-1">
-      <h3>Support</h3>
-      <div>
-        <strong>Documentation</strong>
-        <%= webapp.documentation %>
+    <div class="font-semibold leading-7 text-xs rounded-md text-blue-900">
+      <h2 class="py-2">Developers</h2>
+      <div class="grid grid-cols-4 gap-3">
+        <% webapp.developers.each do |developer| %>
+          <div class="p-2 overflow-auto rounded-lg shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700 bg-white text-center">
+            <%= link_to(developer.full_name, developer) %>
+          </div>
+        <% end %>
       </div>
-      <strong>Developers</strong>
-      <% webapp.developers.each do |w| %>
-        <ul>
-          <li>        <%= link_to(w.full_name, w) %>
-          </li>
-        </ul>
-      <% end %>
     </div>
   </div>
-  <div>
-    <h3>Technical Information</h3>
+  <div class="col-span-1 h-full overflow-auto p-6 rounded-lg shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700 bg-white">
+    <h3 class="pb-4">Technical Information</h3>
     <div>
       <strong>Language</strong>
       <%= webapp.language %>
@@ -74,40 +59,23 @@
         <%= webapp.end_of_life_date %>
       </p>
     </div>
-  </div>
-</div>
-<% if user_signed_in?  %>
-  <% if current_user.roles_name.first == "admin" || current_user.roles.first.resource_id == webapp.id %>
-    <div class="flex flex-row justify-between">
-      <div class="py-2">
-        <button class="secondary_blue_button">
-          <%= link_to "Edit", edit_webapp_path(@webapp) %>
-        </button>
+    <h3 class="py-2">Links</h3>
+    <div class="flex flex-row justify-start space-x-2">
+      <% !if webapp.git_repo? %>
+      <div class="py-2 px-4 font-semibold leading-7 text-xs border w-fit rounded-full text-blue-900 bg-yellow-umyellow text-center">
+        <%= link_to "Github", webapp.git_repo %>
       </div>
-      <div class="py-2">
-        <%= button_to "Delete", @webapp, method: :delete, class: "secondary_blue_button"%>
-      </div>
+    <% end %>
+    <% !if webapp.app_url? %>
+    <div class="py-2 px-4 font-semibold leading-7 text-xs border w-fit rounded-full text-blue-900 bg-yellow-umyellow text-center">
+      <%= link_to "App URL", webapp.app_url %>
     </div>
   <% end %>
+  <% !if webapp.documentation? %>
+  <div class="py-2 px-4 font-semibold leading-7 text-xs border w-fit rounded-full text-blue-900 bg-yellow-umyellow text-center">
+    <%= link_to "Documentation", webapp.documentation %>
+  </div>
 <% end %>
-<%# Full Table Header %>
-<%# <thead class="border border-l-0 border-r-0 border-gray-um60">
-    <tr>
-      <th class="header_th">Project Name</th>
-      <th class="header_th">Language</th>
-      <th class="header_th">Framework</th>
-      <th class="header_th">Description</th>
-      <th class="header_th">Notes</th>
-      <th class="header_th">Status</th>
-      <th class="header_th">Authentication</th>
-      <th class="header_th">Database</th>
-      <th class="header_th">Server OS</th>
-      <th class="header_th">Server Location</th>
-      <th class="header_th">Documentation</th>
-      <th class="header_th">Git Repository</th>
-      <th class="header_th">App URL</th>
-      <th class="header_th">Risk Management Consideration</th>
-      <th class="header_th">Launch Date</th>
-      <th class="header_th">End of Life Date</th>
-    </tr>
-  </thead> %>
+</div>
+</div>
+</div>

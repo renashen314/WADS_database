@@ -1,10 +1,18 @@
-<h1>Editing developer</h1>
-
-<%= render "form", developer: @developer %>
-
-<br>
-
-<div>
-  <%= link_to "Show this developer", @developer %> |
-  <%= link_to "Back to developers", developers_path %>
+<div class="container mx-auto">
+  <div class="mx-16 text-center py-4">
+    <% if @developer.errors.any? %>
+      <div style="color: red">
+        <h2><%= pluralize(@developer.errors.count, "error") %> prohibited this developer from being saved:</h2>
+        <ul>
+          <% @developer.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  </div>
+  <h1 class="mx-16">Edit Profile</h1>
+  <div>
+    <%= render "form", developer: @developer %>
+  </div>
 </div>

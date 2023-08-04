@@ -1,9 +1,18 @@
-<p style="color: green"><%= notice %></p>
 <div class="flex flex-col">
-  <div class="py-2 mx-36">
-    <button class="secondary_blue_button">
-      <%= link_to "Back to webapps", webapps_path %>
-    </button>
-  </div>
+  <div class="text-center" style="color: green"><%= notice %></div>
+  <% if user_signed_in? && current_user.roles.count != 0%>
+    <% if current_user.roles_name.first == "admin" || current_user.roles.first.resource_id == webapp.id %>
+      <div class="flex flex-row justify-between mx-52 pb-4">
+        <div class="py-2">
+          <button class="secondary_yellow_button">
+            <%= link_to "Edit", edit_webapp_path(@webapp) %>
+          </button>
+        </div>
+        <div class="py-2">
+          <%= button_to "Delete", @webapp, method: :delete, class: "secondary_yellow_button"%>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
   <div class="mx-36"><%= render @webapp %></div>
 </div>
