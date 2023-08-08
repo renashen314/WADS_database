@@ -1,22 +1,21 @@
-<div
-  class="bg-cover"
-  style="background-image: url('bg.jpeg'); height: 400px"></div>
-<div class="container mx-auto">
-  <div class="flex flex-col justify-center text-center space-y-10 my-32 mx-96 z-50">
-    <div class="text-6xl py-5 font-bold">
-      <span>The</span>
-      <span class="hover:text-yellow-umyellow"><%= link_to "W&ADS", static_pages_about_path %></span>
-      <span>Database</span>
-    </div>
-    <div> Whether you're looking for specific information or just plain curious about the web applications W&ADS develops, this is the place for all your needs. The W&ADS Database keeps track of all web applications that W&ADS develops and maintains. Technical details about the web application, as well as its developers, are all included. </div>
-    <div class="secondary_yellow_button mx-64">
-      <%= link_to "Get Started", webapps_path %>
-    </div>
-    <div>
-      <% if !user_signed_in? %>
-        Part of W&ADS? Sign in 
-        <%= link_to "here", new_user_session_path, class: "hover: underline"%>
-      <% end %>
+<div class="home-background">
+  <div class="container mx-auto">
+    <div class="flex flex-col justify-center text-center space-y-10 my-32 mx-96">
+      <div class="text-6xl py-5 font-bold">
+        <span>The</span>
+        <span class="hover:text-yellow-umyellow"><%= link_to "W&ADS", static_pages_about_path %></span>
+        <span>Database</span>
+      </div>
+      <div> Whether you're looking for specific information or just plain curious about the web applications W&ADS develops, this is the place for all your needs. The W&ADS Database keeps track of all web applications that W&ADS develops and maintains. Technical details about the web application, as well as its developers, are all included. </div>
+      <div class="secondary_yellow_button mx-64">
+        <%= link_to "Get Started", webapps_path %>
+      </div>
+      <div>
+        <% if !user_signed_in? %>
+          Part of W&ADS? Sign in 
+          <%= link_to "here", new_user_session_path, class: "hover: underline"%>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
