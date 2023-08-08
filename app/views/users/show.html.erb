@@ -1,21 +1,23 @@
-<div>
+<div class="mx-auto">
+  <div class="back_button" aria-label="Back"><%= link_to "Back", :back %></div>
   <h1 class="pb-4">Current Roles: </h1>
-  <% @user.roles.each do |role| %>
-    <% if role.resource_id == nil %>
-      <div class="p-3 w-11/12
-                      block rounded-lg
-                      shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700 bg-white space-x-96 border-red-700 border-2 mb-4">
-        <p class="text-red-700 font-semibold"><%= role.name %></p>
-      </div>
-    <% else %>
-      <h3 class="pb-4"> Developer Roles</h3>
-      <div class="p-3 w-11/12
-                      block rounded-lg
-                      shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700 bg-white flex flex-row space-x-36">
-        <div><%= role.name unless role.resource_id == nil%></div>
-        <%# <div><%= @user.developer.webapps.select{|webapp| webapp.id == role.resource_id}.first.project_name%>
-        <div class="py-2 px-4 font-medium leading-7 text-xs border rounded-full text-white bg-indigo-700"><%= role.name %></div>
-      </div>
+  <div class="grid grid-cols-3 gap-2">
+    <% @user.roles.each do |role| %>
+      <% if role.resource_id == nil %>
+        <div class="p-3 w-11/12
+                       rounded-lg
+                      shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700 bg-white flex flex-row justify-center border-red-700 border-4">
+          <p class="text-red-700 font-semibold self-center"><%= role.name %></p>
+        </div>
+      <% else %>
+        <div class="p-3 w-11/12
+                       rounded-lg
+                      shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700 bg-white flex flex-row space-x-36 justify-between">
+          <div class="self-center"><%= Webapp.find(role.resource_id).project_name unless role.resource_id == nil%></div>
+          <%# <div><%= @user.developer.webapps.select{|webapp| webapp.id == role.resource_id}.first.project_name%>
+          <div class="py-2 px-4 font-medium leading-7 text-xs border rounded-full text-white bg-indigo-700"><%= role.name %></div>
+        </div>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
 </div>

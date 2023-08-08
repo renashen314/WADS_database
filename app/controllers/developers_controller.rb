@@ -1,6 +1,7 @@
 class DevelopersController < ApplicationController
   before_action :set_developer, only: %i[ show edit update destroy ]
   skip_before_action :authenticate_user!, only: [:index, :show]
+  # after_commit :add_new_role, on: [:update]
 
   # GET /developers or /developers.json
   def index
@@ -60,6 +61,9 @@ class DevelopersController < ApplicationController
   end
 
   private
+  # def add_new_role
+  #   @developer.user.add_role :developer, 
+  # end
     # Use callbacks to share common setup or constraints between actions.
     def set_developer
       @developer = Developer.find(params[:id])

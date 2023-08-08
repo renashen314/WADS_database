@@ -1,5 +1,5 @@
 <div class="grid grid-cols-3 gap-2 mx-1">
-  <div class="col-span-1 p-6 h-fit rounded-lg shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700 bg-white space-y-6">
+  <div class="col-span-1 p-6 h-[725px] rounded-lg shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700 bg-white space-y-6">
     <h1 class="pt-4"><%= developer.full_name %></h1>
     <% if developer.image.attached? %>
       <div class="py-3 flex justify-center"><%= image_tag developer.image%></div>
@@ -10,16 +10,20 @@
       @<%= mail_to developer.user.email, developer.uniqname%>
     </div>
   </div>
-  <div class="col-span-2 h-fit p-6 rounded-lg shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700 bg-white">
+  <div class="col-span-2 h-[725px] p-6 rounded-lg shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700 bg-white">
     <h2 class="py-2">Web Applications</h2>
-    <div class="overflow-auto h-3/5">
-      <div class="grid grid-cols-2 gap-3">
-        <% developer.webapps.each do |webapp| %>
-          <div class="p-6 rounded-lg shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700 bg-white text-center">
-            <%= link_to(webapp.project_name, webapp) %>
-          </div>
-        <% end %>
+    <% if developer.webapps.empty? %>
+      <div class="text-center py-48 text-xl"> No web applications at the moment!</div>
+    <% else %>
+      <div class="overflow-auto h-[600px] p-4">
+        <div class="grid grid-cols-2 gap-3">
+          <% developer.webapps.each do |webapp| %>
+            <div class="p-6 rounded-lg shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700 bg-white text-center">
+              <%= link_to(webapp.project_name, webapp) %>
+            </div>
+          <% end %>
+        </div>
       </div>
-    </div>
+    <% end%>
   </div>
 </div>

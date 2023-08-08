@@ -27,7 +27,7 @@
               </td>
               <td class="mi_tbody_td">
                 <ul>
-                  <% a.webapps.each do |w| %>
+                  <% a.webapps.first(3).each do |w| %>
                     <li class="hover:underline"><%= link_to(w.project_name, w) %></li>
                   <% end %>
                 </ul>

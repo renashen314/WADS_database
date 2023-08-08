@@ -60,6 +60,10 @@ from https://tailwindcss.com/docs/adding-custom-styles
     @apply border-blue-900 border m-4;
   }
 
+  .skip-to-content-link {
+    @apply sr-only font-bold text-2xl text-white not-sr-only focus-within:bg-green-700 relative self-center flex justify-center focus-within:p-5 focus-within:underline focus-within:mt-16;
+  }
+  
   .body-text {
     @apply text-sm font-normal ;
   }
@@ -119,6 +123,7 @@ from https://tailwindcss.com/docs/adding-custom-styles
   .check_box_text {
     @apply font-medium leading-4 text-sm text-blue-umblue;
   }
+
 
   .primary_button {
     @apply py-2 px-4 font-medium leading-7 text-xs border rounded-md text-white bg-blue-umblue;
@@ -213,7 +218,7 @@ from https://tailwindcss.com/docs/adding-custom-styles
   }
 
   .back_button {
-    @apply text-sm text-blue-umblue pb-2 hover:underline;
+    @apply py-2 px-4 leading-7 border rounded-md text-blue-umblue bg-yellow-ummaze  w-fit h-fit my-4;
   }
 
   .delete_button {
