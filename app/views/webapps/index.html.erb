@@ -4,11 +4,9 @@
   <div class="flex flex-row justify-between py-2">
     <h1>Webapps</h1>
     <% if user_signed_in? %>
-      <% if current_user.roles_name.first == "admin" %>
-        <button class="secondary_yellow_button">
-          <%= link_to "New webapp", new_webapp_path %>
-        </button>
-      <% end %>
+      <button class="secondary_yellow_button">
+        <%= link_to "New webapp", new_webapp_path %>
+      </button>
     <% end%>
   </div>
   <div class="flex flex-row pt-5">
